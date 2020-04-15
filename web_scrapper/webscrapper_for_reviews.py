@@ -100,7 +100,11 @@ def search():
                                 rating = reviewbox.get_text()[0]
                                 rating_list.append(rating)
 
-                                reviewer_names = reviewbox.find_all('p', {'class': '_3LYOAd'})[0].text
+                                if reviewbox.find_all('p', {'class': '_3LYOAd'}) == []:
+                                   user_names = 'No Name given'
+                                else:
+                                   user_names = reviewbox.find_all('p', {'class': '_3LYOAd'})[0].text
+                                reviewer_names = user_names
                                 user_list.append(reviewer_names)
 
                                 all_reviews_img = reviewbox.img
